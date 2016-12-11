@@ -20,31 +20,31 @@ namespace WindowsFormsApplication1
         public int chessman_point_y = 1; //无日记可下时 存放的棋子临时坐标y
         public void first() //无日记可下时 寻找敌方的位置 并在附近下子
         {
-            for (int i = 2; i < Form1.Horizontal; i++)
+            for (int i = 1; i < Form1.Horizontal; i++)
             {
-                for (int j = 2; j < Form1.vertical; j++)  //循环每个位置
+                for (int j = 1; j < Form1.vertical; j++)  //循环每个位置
                 {
                     if (Form1.Digital_Goban[i, j] == enemy_type) //找到敌方棋子
                     {
-                        if (Form1.Digital_Goban[i + 1, j] == 0) //其上方可下时,落子其上方
+                        if (Form1.Digital_Goban[i + 1, j] == 0 && i + 1 <= Form1.Horizontal) //其上方可下时,落子其上方
                         {
                             chessman_point_x = i + 1; //坐标存入临时坐标
                             chessman_point_y = j;    //坐标存入临时坐标
                             break;
                         }
-                        else if (Form1.Digital_Goban[i - 1, j] == 0)//其下方可下时,落子其下方
+                        else if (Form1.Digital_Goban[i - 1, j] == 0 && i - 1 >= 1)//其下方可下时,落子其下方
                         {
                             chessman_point_x = i - 1;//坐标存入临时坐标
                             chessman_point_y = j;//坐标存入临时坐标
                             break;
                         }
-                        if (Form1.Digital_Goban[i, j + 1] == 0)//其右方可下时,落子其右方
+                        if (Form1.Digital_Goban[i, j + 1] == 0 && j + 1 <= Form1.vertical)//其右方可下时,落子其右方
                         {
                             chessman_point_x = i;//坐标存入临时坐标
                             chessman_point_y = j + 1;//坐标存入临时坐标
                             break;
                         }
-                        else if (Form1.Digital_Goban[i, j - 1] == 0)//其左方可下时,落子其左方
+                        else if (Form1.Digital_Goban[i, j - 1] == 0 && j - 1 >= 1)//其左方可下时,落子其左方
                         {
                             chessman_point_x = i;//坐标存入临时坐标
                             chessman_point_y = j - 1;//坐标存入临时坐标

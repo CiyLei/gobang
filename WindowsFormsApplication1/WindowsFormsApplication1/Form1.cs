@@ -11,7 +11,7 @@ using System.Threading;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form1 : Form
+    public partial class Form1 :Form
     {
         public Form1()
         {
@@ -21,8 +21,8 @@ namespace WindowsFormsApplication1
         Goban_Figure gf = new Goban_Figure();
         chessman cm1 = new chessman(); //实例化棋子1
         chessman cm2 = new chessman(); //实例化棋子2
-        public static int Horizontal = 19; //棋谱的横数
-        public static int vertical = 19;   //棋谱的列数
+        public static int Horizontal = 18; //棋谱的横数
+        public static int vertical = 18;   //棋谱的列数
         public static int[,] Digital_Goban = new int[Horizontal + 1, vertical + 1]; //创建数字棋谱
         bool cm1_bool = true;  //true为现在该棋子1下
         bool cm2_bool = false; //true为现在该棋子2下
@@ -30,14 +30,14 @@ namespace WindowsFormsApplication1
         Robot robot = new Robot();//实例化机器人
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            Start st = new Start();
+            st.ShowDialog();
         }
 
         private void 开始ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             开始ToolStripMenuItem.Text = "重新开始";
-            //gf.bgcolor = Brushes.DodgerBlue; //设置棋谱背景
-            gf.bgcolor = Brushes.Goldenrod; //设置棋谱背景
+            gf.bgcolor = Brushes.DodgerBlue; //设置棋谱背景
             gf.form_height = this.Height;  
             gf.form_width = this.Width;
             gf.Line_size = 2;  //设置棋谱线条大小
